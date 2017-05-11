@@ -1,6 +1,6 @@
 import React from 'react';
 
-const eachObject = (f, o) {
+const eachObject = (f, o) => {
     o.forEach((from) => {
         Object.keys(Object(from)).forEach((key) => {
             f(key, from[key])
@@ -8,11 +8,11 @@ const eachObject = (f, o) {
     })
 }
 
-const isFunction = (x) {
+const isFunction = (x) => {
     return typeof x === 'function'
 }
 
-const assign = (target, ...source) {
+const assign = (target, ...source) => {
     eachObject((key, value) => target[key] = value, source)
     return target
 }
@@ -39,7 +39,8 @@ function connectToStores(Spec, Component = Spec) {
     class StoreConnection extends React.Component {
 
         constructor(props, context) {
-
+            super(props);
+            
             this.context = context;
             this.state = Spec.getPropsFromStores(props, this.context);
 
@@ -80,7 +81,7 @@ function connectToStores(Spec, Component = Spec) {
                 assign({}, this.props, this.state)
             )
         }
-    })
+    }
 
     if (Component.contextTypes) {
         StoreConnection.contextTypes = Component.contextTypes
