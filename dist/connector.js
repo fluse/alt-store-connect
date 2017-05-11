@@ -1,9 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -41,7 +37,7 @@ var assign = function assign(target) {
     return target;
 };
 
-function connectToStores(Spec) {
+module.exports = function connectToStores(Spec) {
     var Component = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Spec;
 
 
@@ -90,7 +86,7 @@ function connectToStores(Spec) {
                 var stores = Spec.getStores(this.props, this.context);
 
                 this.storeListeners = stores.map(function (store) {
-                    return store.listen(_this2.onChange);
+                    return store.listen(_this2.onChange.bind(_this2));
                 });
 
                 if (Spec.componentDidConnect) {
@@ -126,6 +122,4 @@ function connectToStores(Spec) {
     }
 
     return StoreConnection;
-}
-
-exports.default = connectToStores;
+};

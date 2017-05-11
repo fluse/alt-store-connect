@@ -17,7 +17,7 @@ const assign = (target, ...source) => {
     return target
 }
 
-function connectToStores(Spec, Component = Spec) {
+module.exports = function connectToStores(Spec, Component = Spec) {
 
     // Check for required static methods.
     if (!isFunction(Spec.getStores)) {
@@ -40,7 +40,7 @@ function connectToStores(Spec, Component = Spec) {
 
         constructor(props, context) {
             super(props);
-            
+
             this.context = context;
             this.state = Spec.getPropsFromStores(props, this.context);
 
@@ -55,7 +55,7 @@ function connectToStores(Spec, Component = Spec) {
             const stores = Spec.getStores(this.props, this.context)
 
             this.storeListeners = stores.map((store) => {
-                return store.listen(this.onChange)
+                return store.listen(this.onChange.bind(this))
             })
 
             if (Spec.componentDidConnect) {
@@ -89,5 +89,3 @@ function connectToStores(Spec, Component = Spec) {
 
     return StoreConnection
 }
-
-export default connectToStores
