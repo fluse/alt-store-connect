@@ -1,0 +1,13 @@
+.DS_Store
+.git
+node_modules
+doc/
+public/dist/*.js
+public/dist/*.css
+public/dist/*.svg
+bower_components
+npm-debug.log
+uploads/
+logs/*.log
+dump.rdb
+.idea/
