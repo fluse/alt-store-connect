@@ -1,5 +1,11 @@
 # Connecting components to Alt stores
 
+## Install
+
+```
+npm install alt-store-connect --save
+```
+
 `connectToStores` wraps a React component and control its props with data coming from Alt stores.
 
 This module supports React 16
@@ -17,17 +23,17 @@ import myStore from './stores/myStore';
 import connectToStores from 'alt-connect-store';
 
 class MyComponent extends React.Component {
-  static getStores(props) {
-    return [myStore];
-  }
+    static getStores(props) {
+        return [myStore];
+    }
 
-  static getPropsFromStores(props) {
-    return myStore.getState();
-  }
+    static getPropsFromStores(props) {
+        return myStore.getState();
+    }
 
-  render() {
-    // Use this.props like normal...
-  }
+    render() {
+        // Use this.props like normal...
+    }
 }
 
 export default connectToStores(MyComponent);
@@ -41,16 +47,16 @@ import connectToStores from 'alt-connect-store';
 
 @connectToStores
 class MyComponent extends React.Component {
-  static getStores(props) {
-    return [myStore];
-  }
+    static getStores(props) {
+        return [myStore];
+    }
 
-  static getPropsFromStores(props) {
-    return myStore.getState();
-  }
+    static getPropsFromStores(props) {
+        return myStore.getState();
+    }
 
-  render() {
-    // Use this.props like normal...
-  }
+    render() {
+        // Use this.props like normal...
+    }
 }
 ```
