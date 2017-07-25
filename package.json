@@ -1,6 +1,6 @@
 {
     "name": "alt-store-connect",
-    "version": "0.16.2",
+    "version": "0.16.3",
     "description": "An Alt Store Component-Connector",
     "main": "dist/connector.js",
     "scripts": {
