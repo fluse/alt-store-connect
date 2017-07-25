@@ -36,7 +36,7 @@ function connectToStores(Spec, Component = Spec) {
         var storeDidChange = Spec.storeDidChange
     }
 
-    class StoreConnection extends React.Component {
+    class StoreConnection extends React.PureComponent {
 
         constructor(props, context) {
 

@@ -2,6 +2,8 @@
 
 `connectToStores` wraps a React component and control its props with data coming from Alt stores.
 
+This module supports React 16
+
 Expects the Component to have two static methods:
 - `getStores()`: Should return an array of stores.
 - `getPropsFromStores(props)`: Should return the props from the stores.
@@ -35,7 +37,7 @@ export default connectToStores(MyComponent);
 ```js
 import React from 'react';
 import myStore from './stores/myStore';
-import connectToStores from 'alt-utils/lib/connectToStores';
+import connectToStores from 'alt-connect-store';
 
 @connectToStores
 class MyComponent extends React.Component {
