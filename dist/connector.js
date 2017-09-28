@@ -58,8 +58,8 @@ module.exports = function connectToStores(Spec) {
         var storeDidChange = Spec.storeDidChange;
     }
 
-    var StoreConnection = function (_React$PureComponent) {
-        _inherits(StoreConnection, _React$PureComponent);
+    var StoreConnection = function (_React$Component) {
+        _inherits(StoreConnection, _React$Component);
 
         function StoreConnection(props, context) {
             _classCallCheck(this, StoreConnection);
@@ -115,7 +115,7 @@ module.exports = function connectToStores(Spec) {
         }]);
 
         return StoreConnection;
-    }(_react2.default.PureComponent);
+    }(_react2.default.Component);
 
     if (Component.contextTypes) {
         StoreConnection.contextTypes = Component.contextTypes;

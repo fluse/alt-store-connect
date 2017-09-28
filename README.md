@@ -17,12 +17,14 @@ Expects the Component to have two static methods:
 ## Usage Examples
 
 ### ES6 Class Higher Order Component
+
 ```js
 import React from 'react';
 import myStore from './stores/myStore';
 import connectToStores from 'alt-connect-store';
 
 class MyComponent extends React.Component {
+
     static getStores(props) {
         return [myStore];
     }
@@ -40,13 +42,16 @@ export default connectToStores(MyComponent);
 ```
 
 ### ES7 Decorator
+
 ```js
+
 import React from 'react';
 import myStore from './stores/myStore';
 import connectToStores from 'alt-connect-store';
 
 @connectToStores
 class MyComponent extends React.Component {
+
     static getStores(props) {
         return [myStore];
     }

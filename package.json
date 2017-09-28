@@ -1,6 +1,6 @@
 {
     "name": "alt-store-connect",
-    "version": "0.16.3",
+    "version": "16.0.0",
     "description": "An Alt Store Component-Connector",
     "main": "dist/connector.js",
     "scripts": {
@@ -15,6 +15,7 @@
         "alt",
         "flux",
         "react 16",
+        "react 15",
         "connector",
         "es6",
         "es7"
@@ -33,13 +34,13 @@
         "istanbul": "0.3.22",
         "jsdom": "6.5.1",
         "mocha": "2.3.3",
-        "react": "^0.14.0 || ^15.5.0",
-        "react-dom": "^0.14.0 || ^15.5.0",
+        "react": "^0.14.0 || ^15.5.0 || ^16.0.0",
+        "react-dom": "^0.14.0 || ^15.5.0 || ^16.0.0",
         "rimraf": "2.4.3",
         "sinon": "1.17.1"
     },
     "peerDependencies": {
-        "react": "^0.14.0 || ^15.5.0",
-        "react-dom": "^0.14.0 || ^15.5.0"
+        "react": "^0.14.0 || ^15.5.0 || ^16.6.0",
+        "react-dom": "^0.14.0 || ^15.5.0 || ^16.6.0"
     }
 }
