@@ -1,6 +1,6 @@
 {
     "name": "alt-store-connect",
-    "version": "16.0.0",
+    "version": "16.0.1",
     "description": "An Alt Store Component-Connector",
     "main": "dist/connector.js",
     "scripts": {
@@ -40,7 +40,7 @@
         "sinon": "1.17.1"
     },
     "peerDependencies": {
-        "react": "^0.14.0 || ^15.5.0 || ^16.6.0",
-        "react-dom": "^0.14.0 || ^15.5.0 || ^16.6.0"
+        "react": "^0.14.0 || ^15.5.0 || ^16.0.0",
+        "react-dom": "^0.14.0 || ^15.5.0 || ^16.0.0"
     }
 }
