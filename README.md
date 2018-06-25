@@ -45,19 +45,19 @@ export default connectToStores(MyComponent);
 
 ```js
 
-import React from 'react';
-import myStore from './stores/myStore';
-import connectToStores from 'alt-connect-store';
+import React, { Component } from 'react'
+import myStore from './stores/myStore'
+import connectToStores from 'alt-connect-store'
 
 @connectToStores
-class MyComponent extends React.Component {
+export default class MyComponent extends Component {
 
     static getStores(props) {
-        return [myStore];
+        return [myStore]
     }
 
     static getPropsFromStores(props) {
-        return myStore.getState();
+        return myStore.getState()
     }
 
     render() {
