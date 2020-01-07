@@ -1,6 +1,6 @@
 {
     "name": "alt-store-connect",
-    "version": "16.12.0",
+    "version": "16.12.2",
     "description": "An Alt Store Component-Connector",
     "main": "dist/connector.js",
     "scripts": {
@@ -48,6 +48,6 @@
         "react-dom": "^0.14.0 || ^15.5.0 || ^16.x.x"
     },
     "dependencies": {
-        "react-addons-shallow-compare": "^15.6.2"
+        "react-fast-compare": "^2.0.4"
     }
 }

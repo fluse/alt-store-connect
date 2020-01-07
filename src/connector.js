@@ -1,5 +1,5 @@
 import React from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
+import isEqual from 'react-fast-compare';
 
 const eachObject = (f, o) => {
     o.forEach((from) => {
@@ -49,7 +49,7 @@ module.exports = function connectToStores(Spec, Component = Spec) {
         }
 
         shouldComponentUpdate(nextProps, nextState) {
-            return shallowCompare(this, nextProps, nextState)
+            return !isEqual(this.props, nextProps)
         }
 
         componentDidUpdate(nextProps) {

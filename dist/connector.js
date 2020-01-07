@@ -6,9 +6,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsShallowCompare = require('react-addons-shallow-compare');
+var _reactFastCompare = require('react-fast-compare');
 
-var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
+var _reactFastCompare2 = _interopRequireDefault(_reactFastCompare);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -80,7 +80,7 @@ module.exports = function connectToStores(Spec) {
         _createClass(StoreConnection, [{
             key: 'shouldComponentUpdate',
             value: function shouldComponentUpdate(nextProps, nextState) {
-                return (0, _reactAddonsShallowCompare2.default)(this, nextProps, nextState);
+                return !(0, _reactFastCompare2.default)(this.props, nextProps);
             }
         }, {
             key: 'componentDidUpdate',
