@@ -74,8 +74,8 @@ module.exports = function connectToStores(Spec) {
         }
 
         _createClass(StoreConnection, [{
-            key: 'componentWillReceiveProps',
-            value: function componentWillReceiveProps(nextProps) {
+            key: 'componentDidUpdate',
+            value: function componentDidUpdate(nextProps) {
                 this.setState(Spec.getPropsFromStores(nextProps, this.context));
             }
         }, {

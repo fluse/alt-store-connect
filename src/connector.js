@@ -47,7 +47,7 @@ module.exports = function connectToStores(Spec, Component = Spec) {
             this.displayName = `Stateful${Component.displayName || Component.name || 'Container'}`;
         }
 
-        componentWillReceiveProps(nextProps) {
+        componentDidUpdate(nextProps) {
             this.setState(Spec.getPropsFromStores(nextProps, this.context))
         }
 

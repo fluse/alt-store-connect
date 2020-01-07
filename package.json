@@ -1,10 +1,10 @@
 {
     "name": "alt-store-connect",
-    "version": "16.3.0",
+    "version": "16.12.0",
     "description": "An Alt Store Component-Connector",
     "main": "dist/connector.js",
     "scripts": {
-        "build": "npm run clean && npm run transpile",
+        "build": "npm run transpile",
         "coverage": "npm run transpile-cover && istanbul cover node_modules/mocha/bin/_mocha -- -u exports -R tap --require ./test/babel test",
         "lint": "eslint src components",
         "pretest": "npm run clean && npm run transpile",
