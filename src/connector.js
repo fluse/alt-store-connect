@@ -1,4 +1,5 @@
 import React from 'react';
+import shallowCompare from 'react-addons-shallow-compare';
 
 const eachObject = (f, o) => {
     o.forEach((from) => {
@@ -45,6 +46,10 @@ module.exports = function connectToStores(Spec, Component = Spec) {
             this.state = Spec.getPropsFromStores(props, this.context);
 
             this.displayName = `Stateful${Component.displayName || Component.name || 'Container'}`;
+        }
+
+        shouldComponentUpdate(nextProps, nextState) {
+            return shallowCompare(this, nextProps, nextState)
         }
 
         componentDidUpdate(nextProps) {

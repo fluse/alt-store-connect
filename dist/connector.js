@@ -6,6 +6,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactAddonsShallowCompare = require('react-addons-shallow-compare');
+
+var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -74,6 +78,11 @@ module.exports = function connectToStores(Spec) {
         }
 
         _createClass(StoreConnection, [{
+            key: 'shouldComponentUpdate',
+            value: function shouldComponentUpdate(nextProps, nextState) {
+                return (0, _reactAddonsShallowCompare2.default)(this, nextProps, nextState);
+            }
+        }, {
             key: 'componentDidUpdate',
             value: function componentDidUpdate(nextProps) {
                 this.setState(Spec.getPropsFromStores(nextProps, this.context));
