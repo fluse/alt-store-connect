@@ -1,21 +1,7 @@
-import React from 'react';
-import isEqual from 'react-fast-compare';
-
-const eachObject = (f, o) => {
-    o.forEach((from) => {
-        Object.keys(Object(from)).forEach((key) => {
-            f(key, from[key])
-        })
-    })
-}
+import React, { useState } from 'react';
 
 const isFunction = (x) => {
     return typeof x === 'function'
-}
-
-const assign = (target, ...source) => {
-    eachObject((key, value) => target[key] = value, source)
-    return target
 }
 
 module.exports = function connectToStores(Spec, Component = Spec) {
@@ -48,24 +34,12 @@ module.exports = function connectToStores(Spec, Component = Spec) {
             this.displayName = `Stateful${Component.displayName || Component.name || 'Container'}`;
         }
 
-        shouldComponentUpdate(nextProps, nextState) {
-            return !isEqual(this.props, nextProps)
-        }
-
-        componentDidUpdate(nextProps) {
-            this.setState(Spec.getPropsFromStores(nextProps, this.context))
-        }
-
         componentDidMount() {
             const stores = Spec.getStores(this.props, this.context)
 
             this.storeListeners = stores.map((store) => {
                 return store.listen(this.onChange.bind(this))
             })
-
-            if (Spec.componentDidConnect) {
-                Spec.componentDidConnect(this.props, this.context)
-            }
         }
 
         componentWillUnmount() {
@@ -73,6 +47,7 @@ module.exports = function connectToStores(Spec, Component = Spec) {
         }
 
         onChange() {
+
             this.setState(
                 Spec.getPropsFromStores(this.props, this.context)
             )
@@ -81,10 +56,8 @@ module.exports = function connectToStores(Spec, Component = Spec) {
         }
 
         render() {
-            return React.createElement(
-                Component,
-                assign({}, this.props, this.state)
-            )
+            let data = Object.assign({}, this.props, this.state)
+            return <Component {...data} />
         }
     }
 

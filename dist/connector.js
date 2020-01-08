@@ -18,27 +18,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var eachObject = function eachObject(f, o) {
-    o.forEach(function (from) {
-        Object.keys(Object(from)).forEach(function (key) {
-            f(key, from[key]);
-        });
-    });
-};
-
 var isFunction = function isFunction(x) {
     return typeof x === 'function';
-};
-
-var assign = function assign(target) {
-    for (var _len = arguments.length, source = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        source[_key - 1] = arguments[_key];
-    }
-
-    eachObject(function (key, value) {
-        return target[key] = value;
-    }, source);
-    return target;
 };
 
 module.exports = function connectToStores(Spec) {
@@ -78,16 +59,6 @@ module.exports = function connectToStores(Spec) {
         }
 
         _createClass(StoreConnection, [{
-            key: 'shouldComponentUpdate',
-            value: function shouldComponentUpdate(nextProps, nextState) {
-                return !(0, _reactFastCompare2.default)(this.props, nextProps);
-            }
-        }, {
-            key: 'componentDidUpdate',
-            value: function componentDidUpdate(nextProps) {
-                this.setState(Spec.getPropsFromStores(nextProps, this.context));
-            }
-        }, {
             key: 'componentDidMount',
             value: function componentDidMount() {
                 var _this2 = this;
@@ -97,10 +68,6 @@ module.exports = function connectToStores(Spec) {
                 this.storeListeners = stores.map(function (store) {
                     return store.listen(_this2.onChange.bind(_this2));
                 });
-
-                if (Spec.componentDidConnect) {
-                    Spec.componentDidConnect(this.props, this.context);
-                }
             }
         }, {
             key: 'componentWillUnmount',
@@ -112,6 +79,7 @@ module.exports = function connectToStores(Spec) {
         }, {
             key: 'onChange',
             value: function onChange() {
+
                 this.setState(Spec.getPropsFromStores(this.props, this.context));
 
                 storeDidChange(this.state);
@@ -119,7 +87,8 @@ module.exports = function connectToStores(Spec) {
         }, {
             key: 'render',
             value: function render() {
-                return _react2.default.createElement(Component, assign({}, this.props, this.state));
+                var data = Object.assign({}, this.props, this.state);
+                return _react2.default.createElement(Component, data);
             }
         }]);
 
