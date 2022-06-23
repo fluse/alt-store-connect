@@ -36,7 +36,7 @@
         "immutable": "3.7.5",
         "iso": "4.2.0",
         "istanbul": "0.3.22",
-        "jsdom": "6.5.1",
+        "jsdom": "16.5.0",
         "mocha": "2.3.3",
         "react": "^15.x.x || ^16.x.x",
         "react-dom": "^15.x.0 || ^16.x.x",
